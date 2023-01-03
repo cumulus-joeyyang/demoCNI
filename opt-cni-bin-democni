@@ -22,7 +22,7 @@ ADD)
         ip link add dev $bridgeName type bridge
 	fi
 	ip link set $bridgeName up
-	bridgeIP=$(echo $localPodCIDR | sed "s:0/24:1:g")
+	bridgeIP=$(echo $localPodCIDR | sed "s:0/24:254:g")
 	bridgeIPNetmask=$(echo $localPodCIDR | cut -d '/' -f 2)
 	ip addr add ${bridgeIP}/${bridgeIPNetmask} dev $bridgeName
 	
