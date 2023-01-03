@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: testapp
+  name: testappds
+spec:
+  selector:
+    matchLabels:
+      app: testapp
+  template:
+    metadata:
+      labels:
+        app: testapp
+    spec:
+      containers:
+      - image: wbitt/network-multitool
+        imagePullPolicy: IfNotPresent
+        name: network-multitool
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: testapp
+  name: testappds
+spec:
+  ports:
+  - port: 8080
+    nodePort: 30080
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: testapp
+  type: NodePort
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client
+spec:
+  containers:
+  - image: wbitt/network-multitool
+    imagePullPolicy: IfNotPresent
+    name: network-multitool
+---
+
