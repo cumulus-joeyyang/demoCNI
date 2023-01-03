@@ -6,6 +6,7 @@ Binary: opt-cni-bin-democni, need to be moved to /opt/cni/bin/democni and gave "
 
 
 Steps:
+
 0. Make sure the hosts have BIRD/kubectl/kubeconfig/jq installed, it's assumed that each host has unique AS.(Similar to Calico AS per computer design)
 1. Place config file 10-demoCNI.conf to /etc/cni/net.d/
 2. Modify daemon script init.sh accordingly and execute it (Make sure the Rack ToR AS is right for each host)
