@@ -1,8 +1,11 @@
 This is a DIY CNI plugin implemetation for BGP underlay routing network design.
 
 Config file: 10-demoCNI.conf, need to be placed under /etc/cni/net.d/
+
 Daemon: init.sh, only need to be executed once
+
 Binary: opt-cni-bin-democni, need to be moved to /opt/cni/bin/democni and gave "x" permission
+
 
 
 Steps:
